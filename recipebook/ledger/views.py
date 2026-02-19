@@ -137,9 +137,9 @@ def second_recipe(request):
     return render(request, "recipe/secondrecipe.html", second_recipe_dict)
 
 class RecipeListView(ListView):
-    model = RecipeIngredient
-    template_name = "recipelist.html"
+    model = Recipe
+    template_name = "recipe/recipelist.html"
 
 class RecipeDetailView(DetailView):
-    model = RecipeIngredient
-    template_name = "recipedetail.html"
+    model = Recipe
+    template_name = "recipe/recipedetail.html"
