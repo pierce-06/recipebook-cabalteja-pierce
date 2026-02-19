@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ object.name }}{% endblock %}
+{% block title %}{{ recipe.name }}{% endblock %}
 {% block content %}
-    <b>{{ object.name }}</b>
+    <b>{{ recipe.name }}</b>
     <ul>
-        {% for ingredient in object.ingredient.all %}
-            <li>{{ object.ingredient.name }} - {{ object.quantity }}</li>  
+        {% for ingredient in recipe.ingredient.all %}
+            <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>  
         {% endfor %}
     </ul>
 {% endblock %}
