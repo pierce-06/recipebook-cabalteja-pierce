@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import RecipeIngredient
+from .models import RecipeIngredient, Recipe, Ingredient
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 def recipe_list(request):
     rcp = {
@@ -68,10 +70,6 @@ def recipe_list(request):
     }
     return render(request, "recipe/recipelist.html", rcp)
 
-def recipe_list_view(request):
-    recipes = Rec
-    return render(request, "recipe/recipelist.html", rlv)
-
 def first_recipe(request):
     first_recipe_dict = {
         "name": "Recipe 1",
@@ -137,3 +135,11 @@ def second_recipe(request):
         "link": "/recipe/2"
     }
     return render(request, "recipe/secondrecipe.html", second_recipe_dict)
+
+class RecipeListView(ListView):
+    model = RecipeIngredient
+    template_name = "recipelist.html"
+
+class RecipeDetailView(DetailView):
+    model = RecipeIngredient
+    template_name = "recipedetail.html"
