@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import RecipeIngredient
 
 def recipe_list(request):
     rcp = {
@@ -66,6 +67,10 @@ def recipe_list(request):
         ]
     }
     return render(request, "recipe/recipelist.html", rcp)
+
+def recipe_list_view(request):
+    recipes = Rec
+    return render(request, "recipe/recipelist.html", rlv)
 
 def first_recipe(request):
     first_recipe_dict = {
