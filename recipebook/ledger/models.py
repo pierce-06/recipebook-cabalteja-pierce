@@ -9,7 +9,7 @@ class Ingredient(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("recipe_detail", args=[str(self.pk)])
+        return reverse("ledger:recipe_detail", args=[str(self.pk)])
 
 
 class Recipe(models.Model):
