@@ -6,7 +6,7 @@ from django.core.validators import MinLengthValidator
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    short_bio = models.CharField(validators=[MinLengthValidator(256)])
+    short_bio = models.TextField(validators=[MinLengthValidator(255)])
 
     def __str__(self):
         return self.user.username
@@ -23,7 +23,8 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField()
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="recipes")
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE, 
+                               related_name="recipes")
     created_on = models.DateTimeField(auto_now_add=True)
     update_on = models.DateTimeField(auto_now=True)
 
