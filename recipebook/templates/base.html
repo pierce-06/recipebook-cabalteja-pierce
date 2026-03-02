@@ -5,7 +5,16 @@
 </head>
 
 <body>
-    <h1>{% block header %}Recipe Book{% endblock %}</h1>
+    {% block header %}
+        <h1>Recipe Book</h1>
+    </br>
+    { % if user.is_authenticated %}
+        <h3>Hello {{ user.username }}</h3>
+        {% include 'registration/logout.html' %}
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    {% endblock %}
     <div id="content">
         {% block content %}{% endblock %}
     </div>
