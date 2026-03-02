@@ -5,7 +5,7 @@
 {% block content %}
     <b>{{ recipe.name }}</b>
     <ul>
-        {% for ingredient in recipe.ingredient.all %}
+        {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>  
         {% endfor %}
     </ul>
