@@ -7,8 +7,7 @@
 <body>
     {% block header %}
         <h1>Recipe Book</h1>
-    </br>
-    { % if user.is_authenticated %}
+    {% if user.is_authenticated %}
         <h3>Hello {{ user.username }}</h3>
         {% include 'registration/logout.html' %}
     {% else %}
