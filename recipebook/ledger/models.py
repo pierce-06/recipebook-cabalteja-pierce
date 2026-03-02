@@ -23,7 +23,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField()
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="profile_name")
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="recipes")
     created_on = models.DateTimeField(auto_now_add=True)
     update_on = models.DateTimeField(auto_now=True)
 
