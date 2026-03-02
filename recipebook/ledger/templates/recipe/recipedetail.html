@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block title %}{{ recipe.name }}{% endblock %}
+{% block page_heading %}{{ recipe.name }} - Detail View{% endblock %}
 {% block content %}
     <b>{{ recipe.name }}</b>
     <p><strong>Author:</strong> {{ recipe.author.name }}</p>
@@ -10,4 +11,5 @@
             <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>  
         {% endfor %}
     </ul>
+    <a href="{% url 'ledger:recipe_list' %}">Back to List</a>
 {% endblock %}
