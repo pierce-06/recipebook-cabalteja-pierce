@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, RecipeIngredient
+from .models import *
 
 
 class RecipeIngredientInline(admin.TabularInline):
@@ -11,3 +11,5 @@ class RecipeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Ingredient)
+admin.site.register(Profile)
