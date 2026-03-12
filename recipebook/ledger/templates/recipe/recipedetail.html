@@ -5,13 +5,15 @@
 {% block page_heading %}{{ recipe.name }} - Detail View{% endblock %}
 {% block content %}
     <b>{{ recipe.name }}</b>
-    <img src="{{ recipe.images.url }}" alt="{{ recipe.images.description }}">
+    {% for img in recipe.images.all %}
+    <img src="{{ img.image.url }}" alt="{{ img.description }}">
+    {% endfor %}
     <p><strong>Author:</strong> {{ recipe.author.name }}</p>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>  
         {% endfor %}
     </ul>
-    <a href="{% url 'ledger:recipe_add_image' %}">Upload image</a>
+    <a href="{% url 'ledger:recipe_add_image' recipe.pk %}">Upload image</a>
     <a href="{% url 'ledger:recipe_list' %}">Back to List</a>
 {% endblock %}
