@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %} Add recipe {% endblock %}
-
+{% block header %}{% endblock %}
 {% block content %}
-    <form method="post">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <input type="submit" value="Submit">
     </form>
     <p><a href="{{ recipe.get_absolute_url }}">Go back to recipe</a></p>
