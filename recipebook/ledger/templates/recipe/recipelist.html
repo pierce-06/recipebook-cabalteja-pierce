@@ -8,6 +8,6 @@
     {% for recipe in recipes %}
     <li><a href='{{ recipe.get_absolute_url }}'>{{ recipe.name }}</a></li>
     {% endfor %}
-    <a href="{% url 'ledger:recipe_add' %}"></a>
+    <a href="{% url 'ledger:recipe_add' %}">Add recipe</a>
 </ul>
 {% endblock %}
