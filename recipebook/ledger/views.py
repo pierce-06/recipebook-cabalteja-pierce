@@ -23,16 +23,16 @@ def recipe_add(request):
             recipe = form.save(commit=False)
             recipe.author = request.user.profile
             recipe.save()
-            return redirect(recipe.get_absolute_url())
+            return redirect('../../recipes/list')
     else:
         form = RecipeForm()
-    return render(request, 'recipeadd.html', {'form': form})
+    return render(request, 'recipe/recipeadd.html', {'form': form})
         
 @login_required
 def recipe_add_image(request, pk):
     recipe = Recipe.objects.get(pk=pk)
     if request.method == 'POST':
-        form = RecipeImageForm(request.POST)
+        form = RecipeImageForm(request.POST, request.FILES)
         if form.is_valid():
             recipe_image = form.save(commit=False)
             recipe_image.recipe = recipe
@@ -41,4 +41,4 @@ def recipe_add_image(request, pk):
     else:
         form = RecipeImageForm()
 
-    return render(request, 'recipeaddimage.html', {'form': form, 'recipe': recipe})
+    return render(request, 'recipe/recipeaddimage.html', {'form': form, 'recipe': recipe})
