@@ -15,6 +15,7 @@ def recipe_detail(request, pk):
     recipe = Recipe.objects.get(pk=pk)
     return render(request, 'recipe/recipedetail.html', {'recipe': recipe})
 
+
 @login_required
 def recipe_add(request):
     if request.method == "POST":
@@ -27,7 +28,8 @@ def recipe_add(request):
     else:
         form = RecipeForm()
     return render(request, 'recipe/recipeadd.html', {'form': form})
-        
+
+
 @login_required
 def recipe_add_image(request, pk):
     recipe = Recipe.objects.get(pk=pk)
@@ -41,4 +43,5 @@ def recipe_add_image(request, pk):
     else:
         form = RecipeImageForm()
 
-    return render(request, 'recipe/recipeaddimage.html', {'form': form, 'recipe': recipe})
+    return render(request, 'recipe/recipeaddimage.html',
+                  {'form': form, 'recipe': recipe})
