@@ -9,9 +9,6 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-from django.conf import settings
-from django.conf.urls.static import static
-
 from pathlib import Path
 
 import os
@@ -126,13 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATICFILES_DIRS = [BASE_DIR/'static',]
-STATIC_URL = 'static/'
+STATIC_URL = os.getenv('STATIC_URL')
 STATIC_ROOT = [os.path.join(BASE_DIR, 'static')]
 
 LOGIN_REDIRECT_URL = 'ledger:recipe_list'
 LOGOUT_REDIRECT_URL = 'login'
 
 MEDIA_ROOT = BASE_DIR/'media'
-MEDIA_URL = '/media/'
+MEDIA_URL = os.getenv('MEDIA_URL')
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
