@@ -5,6 +5,7 @@
 {% block page_heading %}{{ recipe.name }} - Detail View{% endblock %}
 {% block content %}
     <b>{{ recipe.name }}</b>
+    <img src="{{ recipe.images.url }}" alt="{{ recipe.images.description }}">
     <p><strong>Author:</strong> {{ recipe.author.name }}</p>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
